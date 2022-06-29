@@ -4,4 +4,5 @@ export interface IUSer {
   lastname: string;
   email: string;
   phone: string;
+  select?: boolean;
 }
