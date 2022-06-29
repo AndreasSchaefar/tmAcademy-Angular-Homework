@@ -57,14 +57,15 @@ export class UsersComponent implements OnInit {
     console.log(how, this.users);
   }
 
-  onSearchUser(userName: string) {
-    if (!userName) {
+  onSearchUser(query: string) {
+    if (!query) {
       this.usersService.getUsers().subscribe((users) => (this.users = users));
     } else {
-      this.users = this.users.filter((u) => {
-        return (u.firstname + ' ' + u.lastname)
-          .toLowerCase()
-          .includes(userName.toLowerCase());
+      this.usersService.getUsers().subscribe((users) => {
+        this.users = users.filter((u) => {
+          const userName = `${u.firstname} ${u.lastname}`;
+          return userName.includes(query.trim());
+        });
       });
     }
   }
