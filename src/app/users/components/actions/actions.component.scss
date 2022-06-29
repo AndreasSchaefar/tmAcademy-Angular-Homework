@@ -1,0 +1,21 @@
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.searchbox {
+  padding: 8px;
+  background-color: #bbdefb;
+  border-radius: 4px;
+  width: 150px;
+  height: 50px;
+  color: inherit;
+}
+
+.mat-button,
+.mat-option {
+  color: #2196f3;
+  font-size: inherit;
+  &.mat-selected {
+    color: inherit;
+  }
+}

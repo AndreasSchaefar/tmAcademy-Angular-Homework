@@ -1,8 +1,13 @@
-<div class="user-card">
-  <input type="checkbox" [checked]="user.select" (change)="onSelect(user)" />
-  <div class="user-card__name">
-    {{ user.firstname + " " + user.lastname | uppercase }}
-  </div>
-  <div class="user-card__email">{{ user.email }}</div>
-  <div class="user-card__phone">{{ user.phone }}</div>
-</div>
+<mat-card class="user-card">
+  <mat-checkbox
+    [checked]="user.select"
+    (change)="onSelect(user)"
+  ></mat-checkbox>
+  <mat-card-content class="user-card__info">
+    <p class="user-card__name">
+      {{ user.firstname + " " + user.lastname | uppercase }}
+    </p>
+    <p class="user-card__email">{{ user.email }}</p>
+    <p class="user-card__phone">{{ user.phone }}</p>
+  </mat-card-content>
+</mat-card>

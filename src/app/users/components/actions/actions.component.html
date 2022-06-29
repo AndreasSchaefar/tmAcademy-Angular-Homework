@@ -1,15 +1,27 @@
-<button type="button" (click)="onSelectAll()">Select all</button>
-<button type="button" (click)="onDelete()" [disabled]="selectedAny">
+<button mat-button type="button" (click)="onSelectAll()">Select all</button>
+<button mat-button type="button" (click)="onDelete()" [disabled]="selectedAny">
   Delete
 </button>
-<select [(ngModel)]="selectedSorting" (change)="onSort(selectedSorting)">
-  <option value="No sorting" selected disabled>Sorting order</option>
-  <option value="ASC">Ascending</option>
-  <option value="DESC">Descending</option>
-</select>
-<input
-  [(ngModel)]="searchUser"
-  type="search"
-  placeholder="Search users"
-  (input)="onSearch()"
-/>
+
+<mat-form-field [floatLabel]="'never'">
+  <mat-label>Sorting order</mat-label>
+  <mat-select
+    [(ngModel)]="selectedSorting"
+    (selectionChange)="onSort(selectedSorting)"
+  >
+    <mat-option value="ASC">Ascending</mat-option>
+    <mat-option value="DESC">Descending</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field [floatLabel]="'never'" class="searchbox">
+  <input
+    matInput
+    type="search"
+    placeholder="Search users"
+    [(ngModel)]="searchUser"
+    type="search"
+    placeholder="Search users"
+    (input)="onSearch()"
+  />
+</mat-form-field>

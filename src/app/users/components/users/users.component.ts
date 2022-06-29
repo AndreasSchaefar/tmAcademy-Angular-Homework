@@ -66,8 +66,8 @@ export class UsersComponent implements OnInit {
     } else {
       this.usersService.getUsers().subscribe((users) => {
         this.users = users.filter((u) => {
-          const userName = `${u.firstname} ${u.lastname}`;
-          return userName.includes(query.trim());
+          const userName = `${u.firstname} ${u.lastname}`.toLowerCase();
+          return userName.includes(query);
         });
       });
     }

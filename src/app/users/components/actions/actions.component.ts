@@ -20,7 +20,7 @@ export class ActionsComponent implements OnInit {
   selectedSorting: 'ASC' | 'DESC' | 'No sorting' = 'No sorting';
 
   onSearch() {
-    this.onSearchUsers.emit(this.searchUser);
+    this.onSearchUsers.emit(this.searchUser.toLowerCase().trim());
   }
 
   onSelectAll() {
