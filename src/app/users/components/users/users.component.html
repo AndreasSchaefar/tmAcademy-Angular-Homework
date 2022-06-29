@@ -4,6 +4,7 @@
   (onSelectAllUsers)="onSelectAll($event)"
   (onDeleteUsers)="onDelete()"
   (onSearchUsers)="onSearchUser($event)"
+  [selectedAny]="checkIfAnySelected()"
 ></app-actions>
 <div class="users">
   <app-user-card

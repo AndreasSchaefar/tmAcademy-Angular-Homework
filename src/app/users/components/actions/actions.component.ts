@@ -12,6 +12,7 @@ export class ActionsComponent implements OnInit {
   @Output() onSortDescending: EventEmitter<string> = new EventEmitter();
   @Output() onSelectAllUsers: EventEmitter<any> = new EventEmitter();
   @Output() onSearchUsers: EventEmitter<string> = new EventEmitter();
+  @Input() selectedAny?: boolean;
 
   constructor() {}
 
@@ -29,7 +30,6 @@ export class ActionsComponent implements OnInit {
 
   onDelete() {
     this.onDeleteUsers.emit();
-    console.log('Deleted Users');
   }
 
   onSort(how: string) {
@@ -41,7 +41,6 @@ export class ActionsComponent implements OnInit {
         this.onSortDescending.emit(how);
         break;
     }
-    console.log('Sorted ' + how);
   }
 
   ngOnInit(): void {}

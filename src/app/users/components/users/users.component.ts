@@ -24,6 +24,10 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  checkIfAnySelected(): boolean {
+    return !this.users.some((u) => u.select);
+  }
+
   onDelete() {
     this.users = this.users.filter((u) => !u.select);
   }
