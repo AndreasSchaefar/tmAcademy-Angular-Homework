@@ -2,3 +2,9 @@
 <button type="button" (click)="onDelete()">Delete</button>
 <button type="button" (click)="onSort('ASC')">Sort ASC</button>
 <button type="button" (click)="onSort('DESC')">Sort DESC</button>
+<input
+  [(ngModel)]="searchUser"
+  type="search"
+  placeholder="Search users"
+  (input)="onSearch()"
+/>

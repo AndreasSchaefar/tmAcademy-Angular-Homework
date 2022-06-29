@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { IUSer } from '../../User';
 
 @Component({
@@ -11,10 +11,16 @@ export class ActionsComponent implements OnInit {
   @Output() onSortAscending: EventEmitter<string> = new EventEmitter();
   @Output() onSortDescending: EventEmitter<string> = new EventEmitter();
   @Output() onSelectAllUsers: EventEmitter<any> = new EventEmitter();
+  @Output() onSearchUsers: EventEmitter<string> = new EventEmitter();
 
   constructor() {}
 
   selectedAll: boolean = false;
+  searchUser: string = '';
+
+  onSearch() {
+    this.onSearchUsers.emit(this.searchUser);
+  }
 
   onSelectAll() {
     this.selectedAll = !this.selectedAll;
