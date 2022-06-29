@@ -1,0 +1,13 @@
+<app-actions
+  (onSortAscending)="onSortUsers($event)"
+  (onSortDescending)="onSortUsers($event)"
+  (onSelectAllUsers)="onSelectAll($event)"
+  (onDeleteUsers)="onDelete()"
+></app-actions>
+<div class="users">
+  <app-user-card
+    *ngFor="let user of users"
+    [user]="user"
+    (onSelectUser)="onSelect($event)"
+  ></app-user-card>
+</div>

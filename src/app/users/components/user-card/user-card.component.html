@@ -1,0 +1,8 @@
+<div class="user-card">
+  <input type="checkbox" [checked]="user.select" (change)="onSelect(user)" />
+  <div class="user-card__name">
+    {{ user.firstname + " " + user.lastname | uppercase }}
+  </div>
+  <div class="user-card__email">{{ user.email }}</div>
+  <div class="user-card__phone">{{ user.phone }}</div>
+</div>
