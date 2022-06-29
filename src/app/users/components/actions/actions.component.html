@@ -2,8 +2,11 @@
 <button type="button" (click)="onDelete()" [disabled]="selectedAny">
   Delete
 </button>
-<button type="button" (click)="onSort('ASC')">Sort ASC</button>
-<button type="button" (click)="onSort('DESC')">Sort DESC</button>
+<select [(ngModel)]="selectedSorting" (change)="onSort(selectedSorting)">
+  <option value="No sorting" selected disabled>Sorting order</option>
+  <option value="ASC">Ascending</option>
+  <option value="DESC">Descending</option>
+</select>
 <input
   [(ngModel)]="searchUser"
   type="search"

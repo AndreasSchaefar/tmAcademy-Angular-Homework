@@ -58,7 +58,6 @@ export class UsersComponent implements OnInit {
       case 'DESC':
         this.users.sort(this.compareName).reverse();
     }
-    console.log(how, this.users);
   }
 
   onSearchUser(query: string) {

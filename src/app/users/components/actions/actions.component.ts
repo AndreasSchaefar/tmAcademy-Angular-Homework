@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
-import { IUSer } from '../../User';
 
 @Component({
   selector: 'app-actions',
@@ -18,6 +17,7 @@ export class ActionsComponent implements OnInit {
 
   selectedAll: boolean = false;
   searchUser: string = '';
+  selectedSorting: 'ASC' | 'DESC' | 'No sorting' = 'No sorting';
 
   onSearch() {
     this.onSearchUsers.emit(this.searchUser);
