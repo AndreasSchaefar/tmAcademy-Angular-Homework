@@ -57,6 +57,18 @@ export class UsersComponent implements OnInit {
     console.log(how, this.users);
   }
 
+  onSearchUser(userName: string) {
+    if (!userName) {
+      this.usersService.getUsers().subscribe((users) => (this.users = users));
+    } else {
+      this.users = this.users.filter((u) => {
+        return (u.firstname + ' ' + u.lastname)
+          .toLowerCase()
+          .includes(userName.toLowerCase());
+      });
+    }
+  }
+
   compareName(a: IUSer, b: IUSer) {
     const nameA = (a.firstname + a.lastname).toUpperCase();
     const nameB = (b.firstname + b.lastname).toUpperCase();
