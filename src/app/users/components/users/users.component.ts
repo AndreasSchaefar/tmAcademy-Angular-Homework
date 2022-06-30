@@ -29,7 +29,15 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete() {
-    this.users = this.users.filter((u) => !u.select);
+    this.users
+      .filter((u) => u.select)
+      .forEach((u) =>
+        this.usersService
+          .deleteUser(u)
+          .subscribe(
+            () => (this.users = this.users.filter((user) => user.id !== u.id))
+          )
+      );
   }
 
   onSelect(user: IUSer) {
@@ -42,14 +50,6 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  /* TODO (Send a delete request to database) */
-  onDeleteUsers(usersToDelete: IUSer[]) {
-    this.users = this.users.filter((u) =>
-      usersToDelete.findIndex((ud) => ud.id === u.id)
-    );
-  }
-
-  /* TODO (Send a sorting request to database) */
   onSortUsers(how: string) {
     switch (how) {
       case 'ASC':
@@ -66,7 +66,7 @@ export class UsersComponent implements OnInit {
     } else {
       this.usersService.getUsers().subscribe((users) => {
         this.users = users.filter((u) => {
-          const userName = `${u.firstname} ${u.lastname}`.toLowerCase();
+          const userName = u.name.toLowerCase();
           return userName.includes(query);
         });
       });
@@ -74,8 +74,8 @@ export class UsersComponent implements OnInit {
   }
 
   compareName(a: IUSer, b: IUSer) {
-    const nameA = (a.firstname + a.lastname).toUpperCase();
-    const nameB = (b.firstname + b.lastname).toUpperCase();
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
 
     if (nameA < nameB) {
       return -1;

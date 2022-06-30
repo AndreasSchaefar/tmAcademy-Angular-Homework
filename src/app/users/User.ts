@@ -1,7 +1,6 @@
 export interface IUSer {
   id?: number;
-  firstname: string;
-  lastname: string;
+  name: string;
   email: string;
   phone: string;
   select?: boolean;

@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { IUSer } from '../User';
-import { USERS } from '../mock-users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  constructor() {}
+  private apiUrl: string = 'https://jsonplaceholder.typicode.com/users';
+
+  constructor(private http: HttpClient) {}
   getUsers(): Observable<IUSer[]> {
-    const users = of(USERS);
-    return users;
+    return this.http.get<IUSer[]>(this.apiUrl);
   }
 
-  /*  TODO  */
-  // deleteUsers(users: IUSer[]): Observable<IUSer[]> {}
-  /*  TODO  */
-  // sortUsers(how: string): Observable<IUSer[]> {}
+  deleteUser(user: IUSer): Observable<IUSer[]> {
+    return this.http.delete<IUSer[]>(this.apiUrl + '/' + user.id);
+  }
 }
