@@ -11,13 +11,21 @@
 
 ### Overview
 
-#### Requirements
+### Requirements
 
 - [x] Should show users cards
 - [x] Should be possibility to select user cards with checkboxes
 - [x] Should be possibility to sort user cards
 - [x] Should be possibility to delete selected user cards
 - [x] Should be possibility to search user by first name or last name
+
+##### P.2 Requirements
+
+- [ ] Use API JsonPlaceholder - https://jsonplaceholder.typicode.com/
+- [ ] Get users list
+- [ ] Should have a possibility to add a user
+- [ ] Should have a possibility to delete user
+- [ ] Inputs must contain validation
 
 #### How to start the project
 
@@ -44,6 +52,20 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - [x] Add ‘Sorting’ functionality
 - [x] Add ‘Delete’ functionality
 - [x] Add ‘Search’ functionality
+
+#### P.2
+
+- [ ] Create API service
+- [ ] Add function to get user users list which is sending a GET request to API and retrieve users
+- [ ] Add form with the possibility to type first name, last name, email, phone number
+- [ ] Add button to send request (use same API and POST request)
+- [ ] Use response to add it to the array of users
+- [ ] Add button to delete selected user (selection was added in previous homework, use DELETE request)
+- [ ] Add validation for form:
+  - the first name field must be longer than 2 chars
+  - the last name field must be longer than 2 chars and not longer than 60 chars
+  - the email field must be email type
+  - the phone field must be only numeric symbols
 
 #### Built with
 
