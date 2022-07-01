@@ -23,9 +23,9 @@
 
 - [x] Use API JsonPlaceholder - https://jsonplaceholder.typicode.com/
 - [x] Get users list
-- [ ] Should have a possibility to add a user
+- [x] Should have a possibility to add a user
 - [x] Should have a possibility to delete user
-- [ ] Inputs must contain validation
+- [x] Inputs must contain validation
 
 #### How to start the project
 
@@ -57,11 +57,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - [x] Create API service
 - [x] Add function to get user users list which is sending a GET request to API and retrieve users
-- [ ] Add form with the possibility to type first name, last name, email, phone number
-- [ ] Add button to send request (use same API and POST request)
-- [ ] Use response to add it to the array of users
+- [x] Add form with the possibility to type first name, last name, email, phone number
+- [x] Add button to send request (use same API and POST request)
+- [x] Use response to add it to the array of users
 - [x] Add button to delete selected user (selection was added in previous homework, use DELETE request)
-- [ ] Add validation for form:
+- [x] Add validation for form:
   - the first name field must be longer than 2 chars
   - the last name field must be longer than 2 chars and not longer than 60 chars
   - the email field must be email type
