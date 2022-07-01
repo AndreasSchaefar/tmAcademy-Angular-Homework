@@ -7,6 +7,8 @@
   [selectedAny]="checkIfAnySelected()"
 ></app-actions>
 
+<app-user-form (onSubmitNewUser)="onCreateNewUser($event)"></app-user-form>
+
 <div class="users">
   <app-user-card
     *ngFor="let user of users"

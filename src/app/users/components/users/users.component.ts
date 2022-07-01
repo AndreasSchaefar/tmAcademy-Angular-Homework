@@ -17,6 +17,15 @@ export class UsersComponent implements OnInit {
     this.usersService.getUsers().subscribe((users) => (this.users = users));
   }
 
+  onCreateNewUser(user: IUSer) {
+    this.usersService
+      .createUser({
+        id: Math.max(...(<number[]>this.users.map((u) => u.id))) + 1,
+        ...user,
+      })
+      .subscribe(() => this.users.push(user));
+  }
+
   onSelectAll(selectedAll: boolean) {
     this.users = this.users.map((u) => {
       u.select = selectedAll;

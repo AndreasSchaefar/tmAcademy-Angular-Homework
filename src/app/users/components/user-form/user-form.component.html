@@ -1,0 +1,50 @@
+<form [formGroup]="userForm" class="user-form">
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="First Name"
+      formControlName="firstName"
+    />
+    <mat-error *ngIf="firstName!.invalid && firstName!.touched"
+      >Must be longer than 2 chars!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Last Name"
+      formControlName="lastName"
+    />
+    <mat-error *ngIf="lastName!.invalid && lastName!.touched"
+      >Must be longer than 2 chars and not longer than 60 chars!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Email" formControlName="email" />
+    <mat-error *ngIf="email!.invalid && email!.touched"
+      >It does not look like an email!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      inputmode="numeric"
+      placeholder="Phone Number"
+      formControlName="phone"
+    />
+    <mat-error *ngIf="phone!.invalid && phone!.touched"
+      >Must be only numeric symbols!
+    </mat-error>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    [disabled]="!userForm.valid"
+    color="primary"
+    (click)="onSubmit()"
+  >
+    Create user
+  </button>
+</form>
